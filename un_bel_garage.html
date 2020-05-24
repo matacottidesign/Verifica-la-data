@@ -43,6 +43,56 @@
                 "La data non è valida!"
             */
 
+            //Oggetto data - Notazione a costruttore
+            function data(giorno,mese,anno){
+
+                //Obj properties
+                this.day = giorno,
+                this.month = mese,
+                this.year = anno,
+
+                //Obj methods
+                this.verifyDay = function(){
+                    if(
+                        //31
+                        ((mese === 1 || mese === 3 || mese === 5 || mese === 7 || mese === 8 || mese === 10 || mese === 12) && (giorno > 0 && giorno <= 30) && (Number.isInteger(giorno))) ||
+                        //30
+                        ((mese === 4 || mese === 6 || mese === 9 || mese === 11) && (giorno > 0 && giorno <= 30) && (Number.isInteger(giorno))) ||
+                        //28
+                        ((mese === 2) && (giorno > 0 && giorno <= 28) && (Number.isInteger(giorno)))
+                    ){
+                        console.log('La data è valida: Giorno OK');
+                        console.log('Giorno indicato: ' + giorno);
+                        console.log('Data completa: ' + giorno + '/' + mese + '/' + anno);
+                    }else{
+                        console.log('La data non è valida: Giorno NON VALIDO');
+                    }
+                },
+
+                this.verifyMonth = function(){
+                    if ( 
+                        (mese > 0 && mese <= 12) && 
+                        (Number.isInteger(mese)) 
+                        ){
+                        console.log('La data è valida: Mese OK');
+                        console.log('Mese indicato: ' + mese);
+                        console.log('Data completa: ' + giorno + '/' + mese + '/' + anno);
+                    }else{
+                        console.log('La data non è valida: Mese NON VALIDO');
+                    }
+                }
+
+            }
+
+            //Istanza oggetto "data"
+            let nuovaData = new data(3,4,1997);
+            console.log(nuovaData.day);
+            console.log(nuovaData.month);
+            console.log(nuovaData.year);
+            console.log(nuovaData.verifyDay());
+            console.log(nuovaData.verifyMonth());
+
+
         </script>
 
     </div>
